@@ -313,6 +313,50 @@ td .g{color:var(--ok);font-weight:700}
 .fq p{margin:12px 0 0 44px;font-size:15px;color:var(--muted)}
 .fq[open] p{color:rgba(255,255,255,.9)}
 
+/* ===== медиа: видео, скриншоты, отзывы ===== */
+.media{display:grid;gap:12px;margin-top:16px}
+@media(min-width:760px){.media{grid-template-columns:1fr 1fr}}
+.vcard{border-radius:var(--r-md);overflow:hidden;background:#0B0E14;border:1px solid var(--line);
+  position:relative;box-shadow:var(--sh-s);transition:transform .45s var(--ease),box-shadow .45s}
+.vcard:hover{transform:translateY(-4px);box-shadow:var(--sh-m)}
+.vcard video{width:100%;display:block;aspect-ratio:900/430;object-fit:cover;background:#0B0E14}
+.vcap{position:absolute;left:0;right:0;bottom:0;padding:34px 14px 13px;color:#fff;font-size:13.5px;font-weight:600;
+  line-height:1.35;background:linear-gradient(transparent,rgba(0,0,0,.82))}
+.vtag{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.94);color:#14161C;border-radius:99px;
+  padding:5px 11px;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 2px 14px;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.rail figure{margin:0;flex:0 0 84%;scroll-snap-align:center;cursor:zoom-in}
+@media(min-width:760px){.rail figure{flex:0 0 46%}}
+@media(min-width:1100px){.rail figure{flex:0 0 32%}}
+.rail img{width:100%;display:block;border-radius:var(--r-sm);border:1px solid var(--line);background:var(--surface);
+  box-shadow:var(--sh-s);transition:transform .4s var(--ease)}
+.rail figure:hover img{transform:translateY(-4px)}
+.rail figcaption{font-size:13px;color:var(--muted);margin-top:9px;line-height:1.4}
+.railhead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.rnavs{display:flex;gap:8px}
+.rnav{width:38px;height:38px;border-radius:99px;border:1.5px solid var(--line);background:var(--surface);
+  color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:all .25s var(--ease)}
+.rnav:hover{border-color:var(--blue-400);color:var(--blue-500)}
+.revs figure{flex:0 0 90%}
+@media(min-width:760px){.revs figure{flex:0 0 52%}}
+@media(min-width:1100px){.revs figure{flex:0 0 38%}}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(6,9,16,.93);backdrop-filter:blur(8px);
+  display:none;align-items:center;justify-content:center;padding:16px}
+.lb.on{display:flex;animation:fadein .25s}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.lb img{max-width:100%;max-height:80vh;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lbb{position:absolute;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);color:#fff;
+  border-radius:99px;width:46px;height:46px;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(8px);
+  transition:background .2s}
+.lbb:hover{background:rgba(255,255,255,.26)}
+.lb-x{top:16px;right:16px}
+.lb-p{left:10px;top:50%;transform:translateY(-50%)}
+.lb-n{right:10px;top:50%;transform:translateY(-50%)}
+.lb-c{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:rgba(255,255,255,.82);
+  font-size:13.5px;padding:0 66px;line-height:1.4}
+
 .dock{position:fixed;left:0;right:0;bottom:0;z-index:65;padding:10px var(--pad) calc(10px + env(safe-area-inset-bottom));
   background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(14px);border-top:1px solid var(--line);
   transform:translateY(120%);transition:transform .45s var(--ease)}
@@ -348,6 +392,8 @@ footer .fin{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;a
       <a href="#mitte">Середина</a>
       <a href="#neben">Придаточные</a>
       <a href="#test">Тест</a>
+      <a href="#inside">Платформа</a>
+      <a href="#reviews">Отзывы</a>
     </nav>
     <a class="btn" href="#price">Забрать курс</a>
   </div>
@@ -743,6 +789,82 @@ footer .fin{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;a
   </div>
 </section>
 
+<!-- ============ КАК ВЫГЛЯДИТ ВНУТРИ ============ -->
+<section class="wrap" id="inside">
+  <div class="head rv">
+    <span class="eyebrow">Как это выглядит внутри</span>
+    <h2>Не описание,<br><span class="tg tg--b" data-tg></span><span class="blue">а сама платформа</span></h2>
+    <p>Записи экрана без монтажа и скриншоты из рабочей версии. Кликни по любому изображению, чтобы открыть крупно.</p>
+  </div>
+
+  <div class="media rv">
+    <div class="vcard">
+      <span class="vtag">Тренажёр</span>
+      <video src="video/v1-artikel.mp4" poster="video/v1-artikel.jpg" muted loop playsinline preload="none"></video>
+      <div class="vcap">Семья артиклей: Herr Der, Frau Die и Baby Das. Каждое слово озвучено — род запоминается характером, а не таблицей.</div>
+    </div>
+    <div class="vcard">
+      <span class="vtag">Разговор</span>
+      <video src="video/v3-dialog.mp4" poster="video/v3-dialog.jpg" muted loop playsinline preload="none"></video>
+      <div class="vcap">Симулятор диалога: коллега просит помочь с проектом, а у тебя дедлайн. Выбираешь, что ответить по-немецки.</div>
+    </div>
+    <div class="vcard">
+      <span class="vtag">Уроки</span>
+      <video src="video/v2-lesson.mp4" poster="video/v2-lesson.jpg" muted loop playsinline preload="none"></video>
+      <div class="vcap">Урок идёт по шагам, с прогрессом сверху и переходом к следующему. Ничего не теряется между занятиями.</div>
+    </div>
+    <div class="vcard">
+      <span class="vtag">Грамматика</span>
+      <video src="video/v4-grammar.mp4" poster="video/v4-grammar.jpg" muted loop playsinline preload="none"></video>
+      <div class="vcap">Werden-Passiv и Sein-Passiv показаны рядом, а не на разных страницах. С озвучкой примеров.</div>
+    </div>
+  </div>
+
+  <div class="railhead rv" style="margin-top:26px">
+    <span class="lbl">Скриншоты платформы · листай вбок</span>
+    <div class="rnavs">
+      <button class="rnav" data-rail="shots" data-d="-1" aria-label="Назад"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button class="rnav" data-rail="shots" data-d="1" aria-label="Вперёд"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+  <div class="rail rv" id="shots">
+    <figure><img data-lb src="img/platform/p5-builder.jpg" alt="Sentence Builder — сборка предложения из слов" loading="lazy"><figcaption><b>Sentence Builder.</b> Ровно то, чем ты занимался выше: собираешь фразу из слов и жмёшь «Проверить».</figcaption></figure>
+    <figure><img data-lb src="img/platform/p1-home.jpg" alt="Главная страница платформы" loading="lazy"><figcaption><b>Главная.</b> Навигация, заметки на день, таймер и подборки ресурсов под твой уровень.</figcaption></figure>
+    <figure><img data-lb src="img/platform/p2-guides.jpg" alt="Оглавление раздела грамматики" loading="lazy"><figcaption><b>Грамматика по порядку.</b> Алфавит, правила чтения, глаголы, падежи — видно, что уже пройдено и что дальше.</figcaption></figure>
+    <figure><img data-lb src="img/platform/p3-guide.jpg" alt="Разделы внутри темы" loading="lazy"><figcaption><b>Внутри темы.</b> Местоимения разложены на подтемы, отдельно таблицы склонений по падежам.</figcaption></figure>
+    <figure><img data-lb src="img/platform/p4-words.jpg" alt="Слова по темам с озвучкой" loading="lazy"><figcaption><b>Слова с озвучкой.</b> Например, аренда жилья: Kaltmiete, Warmmiete, Kaution, Nebenkosten — с кнопкой «Hören».</figcaption></figure>
+    <figure><img data-lb src="img/platform/p7-work.jpg" alt="Ситуации: работа и документы" loading="lazy"><figcaption><b>Работа и документы.</b> JobCenter, разговор с консультантом, поиск работы, собеседование, транспорт.</figcaption></figure>
+    <figure><img data-lb src="img/platform/p8-situations.jpg" alt="Ситуации: больница и покупки" loading="lazy"><figcaption><b>Больница и магазины.</b> У терапевта, в аптеке, звонок в скорую, касса, возврат товара.</figcaption></figure>
+    <figure><img data-lb src="img/platform/p6-tracker.jpg" alt="Трекер привычек и статистика" loading="lazy"><figcaption><b>Трекер.</b> Чтение, слушание, разговорная практика и письмо — со streak’ами и статистикой.</figcaption></figure>
+  </div>
+</section>
+
+<!-- ============ ОТЗЫВЫ ============ -->
+<section class="wrap" id="reviews">
+  <div class="head rv">
+    <span class="eyebrow">Отзывы</span>
+    <h2>Скриншоты переписок.<br><span class="tg tg--b" data-tg></span><span class="blue">Как есть</span></h2>
+    <p>Не пересказ и не рекламные карточки, а сообщения от людей, купивших доступ. Имена и аватары убраны.</p>
+  </div>
+
+  <div class="railhead rv">
+    <span class="lbl">Листай вбок · нажми, чтобы прочитать крупно</span>
+    <div class="rnavs">
+      <button class="rnav" data-rail="revrail" data-d="-1" aria-label="Назад"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button class="rnav" data-rail="revrail" data-d="1" aria-label="Вперёд"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+  <div class="rail revs rv" id="revrail">
+    <figure><img data-lb src="img/reviews/r7.jpg" alt="Отзыв с сертификатом B1" loading="lazy"><figcaption>Deutsch-Test für Zuwanderer сдан на <b>B1</b>: «Кажется, только благодаря твоим объяснениям мудрёной немецкой грамматики получилось сдать этот тест».</figcaption></figure>
+    <figure><img data-lb src="img/reviews/r5.jpg" alt="Отзыв о методике" loading="lazy"><figcaption>«Зазубривание по стандартным книжкам удовольствия не приносит. Но что я вижу здесь: и скорость, и результат, и удовольствие».</figcaption></figure>
+    <figure><img data-lb src="img/reviews/r2.jpg" alt="Отзыв о разговорной речи" loading="lazy"><figcaption>«Перепробовала много ресурсов помимо интеграционных курсов, но проблема разговорной речи всё равно была».</figcaption></figure>
+    <figure><img data-lb src="img/reviews/r6.jpg" alt="Отзыв про структуру" loading="lazy"><figcaption>«Учила немецкий сама, но запуталась в источниках информации. Всегда под рукой — даже при наличии 5 минут».</figcaption></figure>
+    <figure><img data-lb src="img/reviews/r1.jpg" alt="Отзыв про структуру уроков" loading="lazy"><figcaption>«Уроки хорошо структурированы, материал подаётся последовательно — легко учиться и не теряться».</figcaption></figure>
+    <figure><img data-lb src="img/reviews/r3.jpg" alt="Отзыв через год использования" loading="lazy"><figcaption>«Купила доступ к платформе год назад. Платформа очень помогла в изучении языка».</figcaption></figure>
+    <figure><img data-lb src="img/reviews/r4.jpg" alt="Отзыв про видео" loading="lazy"><figcaption>«Всё очень структурировано, ярко и понятно. Особенно понравился раздел с видео».</figcaption></figure>
+  </div>
+</section>
+
 <!-- ============ ЦЕНА ============ -->
 <section class="wrap" id="price">
   <div class="head rv">
@@ -824,6 +946,14 @@ footer .fin{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;a
 </main>
 
 <div class="dock" id="dock"><a class="btn btn--b" href="#price">A0 → C1 за 30 € · навсегда</a></div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Просмотр изображения">
+  <button class="lbb lb-x" id="lbx" aria-label="Закрыть"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  <button class="lbb lb-p" id="lbp" aria-label="Предыдущее"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <button class="lbb lb-n" id="lbn" aria-label="Следующее"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M9 6l6 6-6 6"/></svg></button>
+  <img id="lbi" alt="">
+  <div class="lb-c" id="lbc"></div>
+</div>
 
 <script>
 (function(){
@@ -1308,6 +1438,73 @@ if(!reduce && matchMedia('(hover:hover)').matches){
     c.addEventListener('pointerleave', function(){ c.style.transform=''; });
   });
 }
+/* ---------- 14. Видео: играет только в зоне видимости ---------- */
+(function(){
+  var vids = document.querySelectorAll('.vcard video');
+  if(!vids.length) return;
+  var vio = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      var v = e.target;
+      if(e.isIntersecting && !reduce){ var p = v.play(); if(p && p.catch) p.catch(function(){}); }
+      else v.pause();
+    });
+  }, {threshold:.35});
+  vids.forEach(function(v){ vio.observe(v); });
+})();
+
+/* ---------- 15. Лайтбокс ---------- */
+(function(){
+  var imgs = [].slice.call(document.querySelectorAll('[data-lb]'));
+  if(!imgs.length) return;
+  var lb = document.getElementById('lb'), li = document.getElementById('lbi'), lc = document.getElementById('lbc');
+  var i = 0;
+  function capOf(img){
+    var f = img.closest('figure');
+    var c = f && f.querySelector('figcaption');
+    return c ? c.textContent : (img.alt || '');
+  }
+  function show(n){
+    i = (n + imgs.length) % imgs.length;
+    li.src = imgs[i].src;
+    li.alt = imgs[i].alt;
+    lc.textContent = capOf(imgs[i]);
+  }
+  function open(n){ show(n); lb.classList.add('on'); document.body.style.overflow = 'hidden'; }
+  function close(){ lb.classList.remove('on'); document.body.style.overflow = ''; li.src = ''; }
+  imgs.forEach(function(img, n){
+    img.addEventListener('click', function(){ open(n); });
+    img.setAttribute('tabindex', '0');
+    img.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); open(n); } });
+  });
+  document.getElementById('lbx').addEventListener('click', close);
+  document.getElementById('lbp').addEventListener('click', function(e){ e.stopPropagation(); show(i-1); });
+  document.getElementById('lbn').addEventListener('click', function(e){ e.stopPropagation(); show(i+1); });
+  lb.addEventListener('click', function(e){ if(e.target === lb) close(); });
+  addEventListener('keydown', function(e){
+    if(!lb.classList.contains('on')) return;
+    if(e.key === 'Escape') close();
+    if(e.key === 'ArrowLeft') show(i-1);
+    if(e.key === 'ArrowRight') show(i+1);
+  });
+  var sx = 0;
+  lb.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener('touchend', function(e){
+    var dx = e.changedTouches[0].clientX - sx;
+    if(Math.abs(dx) > 45) show(dx < 0 ? i+1 : i-1);
+  }, {passive:true});
+})();
+
+/* ---------- 16. Стрелки каруселей ---------- */
+document.querySelectorAll('.rnav').forEach(function(b){
+  b.addEventListener('click', function(){
+    var rail = document.getElementById(b.dataset.rail);
+    if(!rail) return;
+    var card = rail.querySelector('figure');
+    var step = card ? card.getBoundingClientRect().width + 12 : rail.clientWidth * .8;
+    rail.scrollBy({left: step * (+b.dataset.d), behavior: reduce ? 'auto' : 'smooth'});
+  });
+});
+
 document.querySelectorAll('[data-buy]').forEach(function(a){
   a.addEventListener('click', function(e){
     if(a.getAttribute('href') === '#'){
